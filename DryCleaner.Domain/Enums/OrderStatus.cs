@@ -1,7 +1,7 @@
-namespace DryCleaner.Domain.Enums;
+п»їnamespace DryCleaner.Domain.Enums;
 
 /// <summary>
-/// Статус заказа
+/// РЎС‚Р°С‚СѓСЃ Р·Р°РєР°Р·Р°
 /// </summary>
 public enum OrderStatus
 {

@@ -1,63 +1,63 @@
-using DryCleaner.Domain.Entities;
+п»їusing DryCleaner.Domain.Entities;
 using DryCleaner.Domain.Enums;
 
 namespace DryCleaner.Domain.Data;
 
 /// <summary>
-/// Тестовые данные химчистки
+/// РўРµСЃС‚РѕРІС‹Рµ РґР°РЅРЅС‹Рµ С…РёРјС‡РёСЃС‚РєРё
 /// </summary>
 public static class DataSeed
 {
-    /// <summary>Категории изделий</summary>
+    /// <summary>РљР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёР№</summary>
     public static List<ItemCategory> Categories() => new()
     {
-        new ItemCategory { Name = "Верхняя одежда", RecommendedCleaning = CleaningType.DryCleaning, Price = 1500 },
-        new ItemCategory { Name = "Пальто", RecommendedCleaning = CleaningType.DryCleaning, Price = 2000 },
-        new ItemCategory { Name = "Платье", RecommendedCleaning = CleaningType.DryCleaning, Price = 1200 },
-        new ItemCategory { Name = "Костюм", RecommendedCleaning = CleaningType.DryCleaning, Price = 1800 },
-        new ItemCategory { Name = "Рубашка", RecommendedCleaning = CleaningType.Ironing, Price = 500  },
-        new ItemCategory { Name = "Брюки", RecommendedCleaning = CleaningType.Ironing, Price = 800  },
-        new ItemCategory { Name = "Постельное белье", RecommendedCleaning = CleaningType.AquaCleaning, Price = 700  },
-        new ItemCategory { Name = "Спортивная одежда", RecommendedCleaning = CleaningType.WetCleaning, Price = 600  },
-        new ItemCategory { Name = "Куртка", RecommendedCleaning = CleaningType.DryCleaning, Price = 1700 },
-        new ItemCategory { Name = "Шуба", RecommendedCleaning = CleaningType.DryCleaning, Price = 5000 },
+        new ItemCategory { Name = "Р’РµСЂС…РЅСЏСЏ РѕРґРµР¶РґР°", RecommendedCleaning = CleaningType.DryCleaning, Price = 1500 },
+        new ItemCategory { Name = "РџР°Р»СЊС‚Рѕ", RecommendedCleaning = CleaningType.DryCleaning, Price = 2000 },
+        new ItemCategory { Name = "РџР»Р°С‚СЊРµ", RecommendedCleaning = CleaningType.DryCleaning, Price = 1200 },
+        new ItemCategory { Name = "РљРѕСЃС‚СЋРј", RecommendedCleaning = CleaningType.DryCleaning, Price = 1800 },
+        new ItemCategory { Name = "Р СѓР±Р°С€РєР°", RecommendedCleaning = CleaningType.Ironing, Price = 500  },
+        new ItemCategory { Name = "Р‘СЂСЋРєРё", RecommendedCleaning = CleaningType.Ironing, Price = 800  },
+        new ItemCategory { Name = "РџРѕСЃС‚РµР»СЊРЅРѕРµ Р±РµР»СЊРµ", RecommendedCleaning = CleaningType.AquaCleaning, Price = 700  },
+        new ItemCategory { Name = "РЎРїРѕСЂС‚РёРІРЅР°СЏ РѕРґРµР¶РґР°", RecommendedCleaning = CleaningType.WetCleaning, Price = 600  },
+        new ItemCategory { Name = "РљСѓСЂС‚РєР°", RecommendedCleaning = CleaningType.DryCleaning, Price = 1700 },
+        new ItemCategory { Name = "РЁСѓР±Р°", RecommendedCleaning = CleaningType.DryCleaning, Price = 5000 },
     };
 
-    /// <summary>Список изделий</summary>
+    /// <summary>РЎРїРёСЃРѕРє РёР·РґРµР»РёР№</summary>
     public static List<Item> Items()
     {
         var categories = Categories();
         return new()
         {
-            new Item { Name = "Пальто", Category = categories[1], Material = "Шерсть" },
-            new Item { Name = "Пиджак", Category = categories[3], Material = "Хлопок" },
-            new Item { Name = "Платье свадебное", Category = categories[2], Material = "Шёлк" },
-            new Item { Name = "Рубашка в клеточку", Category = categories[4], Material = "Хлопок" },
-            new Item { Name = "Брюки замшевые", Category = categories[5], Material = "Шерсть" },
-            new Item { Name = "Куртка", Category = categories[8], Material = "Кожа" },
-            new Item { Name = "Шуба норковая", Category = categories[9], Material = "Мех" },
-            new Item { Name = "Костюм тройка", Category = categories[3], Material = "Шерсть" },
-            new Item { Name = "Футбольная форма", Category = categories[7], Material = "Синтетика" },
-            new Item { Name = "Постельное бельё", Category = categories[6], Material = "Хлопок" },
+            new Item { Name = "РџР°Р»СЊС‚Рѕ", Category = categories[1], Material = "РЁРµСЂСЃС‚СЊ" },
+            new Item { Name = "РџРёРґР¶Р°Рє", Category = categories[3], Material = "РҐР»РѕРїРѕРє" },
+            new Item { Name = "РџР»Р°С‚СЊРµ СЃРІР°РґРµР±РЅРѕРµ", Category = categories[2], Material = "РЁС‘Р»Рє" },
+            new Item { Name = "Р СѓР±Р°С€РєР° РІ РєР»РµС‚РѕС‡РєСѓ", Category = categories[4], Material = "РҐР»РѕРїРѕРє" },
+            new Item { Name = "Р‘СЂСЋРєРё Р·Р°РјС€РµРІС‹Рµ", Category = categories[5], Material = "РЁРµСЂСЃС‚СЊ" },
+            new Item { Name = "РљСѓСЂС‚РєР°", Category = categories[8], Material = "РљРѕР¶Р°" },
+            new Item { Name = "РЁСѓР±Р° РЅРѕСЂРєРѕРІР°СЏ", Category = categories[9], Material = "РњРµС…" },
+            new Item { Name = "РљРѕСЃС‚СЋРј С‚СЂРѕР№РєР°", Category = categories[3], Material = "РЁРµСЂСЃС‚СЊ" },
+            new Item { Name = "Р¤СѓС‚Р±РѕР»СЊРЅР°СЏ С„РѕСЂРјР°", Category = categories[7], Material = "РЎРёРЅС‚РµС‚РёРєР°" },
+            new Item { Name = "РџРѕСЃС‚РµР»СЊРЅРѕРµ Р±РµР»СЊС‘", Category = categories[6], Material = "РҐР»РѕРїРѕРє" },
         };
     }
 
-    /// <summary>Список клиентов</summary>
+    /// <summary>РЎРїРёСЃРѕРє РєР»РёРµРЅС‚РѕРІ</summary>
     public static List<Client> Clients() => new()
     {
-        new Client { FullName = "Евлампьев Евлампий Евлампиевич", PhoneNumber = "+79001112233" },
-        new Client { FullName = "Сергеев Александр Сильвестрович", PhoneNumber = "+79000000000" },
-        new Client { FullName = "Сергеев Александр Александрович", PhoneNumber = "+79000000001" },
-        new Client { FullName = "Баринов Виктор Петрович", PhoneNumber = "+78005553535" },
-        new Client { FullName = "Уолтер Хартвелл Уайт", PhoneNumber = "+15430000567" },
-        new Client { FullName = "Вазовский Майк Петрович", PhoneNumber = "+23334444555" },
-        new Client { FullName = "Гудман Сол Александрович", PhoneNumber = "+77777777777" },
-        new Client { FullName = "Чигур Антон Валерьевич", PhoneNumber = "+66666666666" },
-        new Client { FullName = "Пинкман Джесси Евгеньевич", PhoneNumber = "+977712935030" },
-        new Client { FullName = "Скалетта Вито Антонович", PhoneNumber = "+79004301983" },
+        new Client { FullName = "Р•РІР»Р°РјРїСЊРµРІ Р•РІР»Р°РјРїРёР№ Р•РІР»Р°РјРїРёРµРІРёС‡", PhoneNumber = "+79001112233" },
+        new Client { FullName = "РЎРµСЂРіРµРµРІ РђР»РµРєСЃР°РЅРґСЂ РЎРёР»СЊРІРµСЃС‚СЂРѕРІРёС‡", PhoneNumber = "+79000000000" },
+        new Client { FullName = "РЎРµСЂРіРµРµРІ РђР»РµРєСЃР°РЅРґСЂ РђР»РµРєСЃР°РЅРґСЂРѕРІРёС‡", PhoneNumber = "+79000000001" },
+        new Client { FullName = "Р‘Р°СЂРёРЅРѕРІ Р’РёРєС‚РѕСЂ РџРµС‚СЂРѕРІРёС‡", PhoneNumber = "+78005553535" },
+        new Client { FullName = "РЈРѕР»С‚РµСЂ РҐР°СЂС‚РІРµР»Р» РЈР°Р№С‚", PhoneNumber = "+15430000567" },
+        new Client { FullName = "Р’Р°Р·РѕРІСЃРєРёР№ РњР°Р№Рє РџРµС‚СЂРѕРІРёС‡", PhoneNumber = "+23334444555" },
+        new Client { FullName = "Р“СѓРґРјР°РЅ РЎРѕР» РђР»РµРєСЃР°РЅРґСЂРѕРІРёС‡", PhoneNumber = "+77777777777" },
+        new Client { FullName = "Р§РёРіСѓСЂ РђРЅС‚РѕРЅ Р’Р°Р»РµСЂСЊРµРІРёС‡", PhoneNumber = "+66666666666" },
+        new Client { FullName = "РџРёРЅРєРјР°РЅ Р”Р¶РµСЃСЃРё Р•РІРіРµРЅСЊРµРІРёС‡", PhoneNumber = "+977712935030" },
+        new Client { FullName = "РЎРєР°Р»РµС‚С‚Р° Р’РёС‚Рѕ РђРЅС‚РѕРЅРѕРІРёС‡", PhoneNumber = "+79004301983" },
     };
 
-    /// <summary>Список заказов</summary>
+    /// <summary>РЎРїРёСЃРѕРє Р·Р°РєР°Р·РѕРІ</summary>
     public static List<Order> Orders()
     {
         var clients = Clients();

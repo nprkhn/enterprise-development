@@ -1,7 +1,7 @@
-namespace DryCleaner.Domain.Entities;
+п»їnamespace DryCleaner.Domain.Entities;
 
 /// <summary>
-/// Изделие в химчистке
+/// РР·РґРµР»РёРµ РІ С…РёРјС‡РёСЃС‚РєРµ
 /// </summary>
 public class Item
 {

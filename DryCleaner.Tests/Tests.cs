@@ -1,4 +1,4 @@
-using DryCleaner.Domain.Data;
+п»їusing DryCleaner.Domain.Data;
 using DryCleaner.Domain.Entities;
 using DryCleaner.Domain.Enums;
 using Xunit;
@@ -6,7 +6,7 @@ using Xunit;
 namespace DryCleaner.Tests;
 
 /// <summary>
-/// Тесты химчистки
+/// РўРµСЃС‚С‹ С…РёРјС‡РёСЃС‚РєРё
 /// </summary>
 public class Tests
 {
@@ -22,7 +22,7 @@ public class Tests
     }
 
     /// <summary>
-    /// Заказы в обработке, упорядоченные по дате приёма
+    /// Р—Р°РєР°Р·С‹ РІ РѕР±СЂР°Р±РѕС‚РєРµ, СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹Рµ РїРѕ РґР°С‚Рµ РїСЂРёС‘РјР°
     /// </summary>
     [Fact]
     public void OrdersInProgress()
@@ -40,7 +40,7 @@ public class Tests
     }
 
     /// <summary>
-    /// Топ-5 клиентов по числу сданных изделий за период
+    /// РўРѕРї-5 РєР»РёРµРЅС‚РѕРІ РїРѕ С‡РёСЃР»Сѓ СЃРґР°РЅРЅС‹С… РёР·РґРµР»РёР№ Р·Р° РїРµСЂРёРѕРґ
     /// </summary>
     [Fact]
     public void Top5Clients()
@@ -58,13 +58,13 @@ public class Tests
             .ToList();
 
         Assert.Equal(5, top5.Count);
-        Assert.Equal("Евлампьев Евлампий Евлампиевич", top5[0].Client.FullName);
+        Assert.Equal("Р•РІР»Р°РјРїСЊРµРІ Р•РІР»Р°РјРїРёР№ Р•РІР»Р°РјРїРёРµРІРёС‡", top5[0].Client.FullName);
         Assert.Equal(4, top5[0].Items);
         Assert.Equal(10, top5.Sum(x => x.Items));
     }
 
     /// <summary>
-    /// Клиенты, чьи заказы обрабатывались дольше всего, по ФИО
+    /// РљР»РёРµРЅС‚С‹, С‡СЊРё Р·Р°РєР°Р·С‹ РѕР±СЂР°Р±Р°С‚С‹РІР°Р»РёСЃСЊ РґРѕР»СЊС€Рµ РІСЃРµРіРѕ, РїРѕ Р¤РРћ
     /// </summary>
     [Fact]
     public void ClientsWithLongestProcessing()
@@ -82,14 +82,14 @@ public class Tests
             .ToList();
 
         Assert.Equal(5, longest.Count);
-        Assert.Equal("Вазовский Майк Петрович", longest[0].Client.FullName);
+        Assert.Equal("Р’Р°Р·РѕРІСЃРєРёР№ РњР°Р№Рє РџРµС‚СЂРѕРІРёС‡", longest[0].Client.FullName);
         Assert.Equal(10, longest[0].MaxDays);
-        Assert.Equal("Сергеев Александр Сильвестрович", longest[1].Client.FullName);
+        Assert.Equal("РЎРµСЂРіРµРµРІ РђР»РµРєСЃР°РЅРґСЂ РЎРёР»СЊРІРµСЃС‚СЂРѕРІРёС‡", longest[1].Client.FullName);
         Assert.Equal(7, longest[1].MaxDays);
     }
 
     /// <summary>
-    /// Топ-5 наиболее и наименее популярных категорий за последний год
+    /// РўРѕРї-5 РЅР°РёР±РѕР»РµРµ Рё РЅР°РёРјРµРЅРµРµ РїРѕРїСѓР»СЏСЂРЅС‹С… РєР°С‚РµРіРѕСЂРёР№ Р·Р° РїРѕСЃР»РµРґРЅРёР№ РіРѕРґ
     /// </summary>
     [Fact]
     public void Top5CategoriesByPopularity()
@@ -116,7 +116,7 @@ public class Tests
             .ToList();
 
         Assert.Equal(5, mostPopular.Count);
-        Assert.Equal("Костюм", mostPopular[0].Category.Name);
+        Assert.Equal("РљРѕСЃС‚СЋРј", mostPopular[0].Category.Name);
         Assert.Equal(3, mostPopular[0].Count);
         Assert.Equal(11, mostPopular.Sum(x => x.Count));
 
@@ -125,14 +125,14 @@ public class Tests
         Assert.Equal(6, leastPopular.Sum(x => x.Count));
 
         var leastNames = leastPopular.Take(4).Select(x => x.Category.Name).ToList();
-        Assert.Contains("Брюки", leastNames);
-        Assert.Contains("Постельное белье", leastNames);
-        Assert.Contains("Спортивная одежда", leastNames);
-        Assert.Contains("Шуба", leastNames);
+        Assert.Contains("Р‘СЂСЋРєРё", leastNames);
+        Assert.Contains("РџРѕСЃС‚РµР»СЊРЅРѕРµ Р±РµР»СЊРµ", leastNames);
+        Assert.Contains("РЎРїРѕСЂС‚РёРІРЅР°СЏ РѕРґРµР¶РґР°", leastNames);
+        Assert.Contains("РЁСѓР±Р°", leastNames);
     }
 
     /// <summary>
-    /// Клиент, потративший наибольшую сумму за всё время
+    /// РљР»РёРµРЅС‚, РїРѕС‚СЂР°С‚РёРІС€РёР№ РЅР°РёР±РѕР»СЊС€СѓСЋ СЃСѓРјРјСѓ Р·Р° РІСЃС‘ РІСЂРµРјСЏ
     /// </summary>
     [Fact]
     public void TopSpender()
@@ -148,7 +148,7 @@ public class Tests
             .ThenBy(x => x.Client.FullName)
             .First();
 
-        Assert.Equal("Евлампьев Евлампий Евлампиевич", top.Client.FullName);
+        Assert.Equal("Р•РІР»Р°РјРїСЊРµРІ Р•РІР»Р°РјРїРёР№ Р•РІР»Р°РјРїРёРµРІРёС‡", top.Client.FullName);
         Assert.Equal(10600, top.Total);
     }
 }

@@ -1,9 +1,9 @@
-using DryCleaner.Domain.Enums;
+п»їusing DryCleaner.Domain.Enums;
 
 namespace DryCleaner.Domain.Entities;
 
 /// <summary>
-/// Заказ на химчистку
+/// Р—Р°РєР°Р· РЅР° С…РёРјС‡РёСЃС‚РєСѓ
 /// </summary>
 public class Order
 {

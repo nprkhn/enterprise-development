@@ -1,9 +1,9 @@
-using DryCleaner.Domain.Enums;
+п»їusing DryCleaner.Domain.Enums;
 
 namespace DryCleaner.Domain.Entities;
 
 /// <summary>
-/// Категория изделия
+/// РљР°С‚РµРіРѕСЂРёСЏ РёР·РґРµР»РёСЏ
 /// </summary>
 public class ItemCategory
 {
