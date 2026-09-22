@@ -2,10 +2,7 @@ name: .NET Build & Test
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [ lab1 ]
 
 jobs:
   build-and-test:
