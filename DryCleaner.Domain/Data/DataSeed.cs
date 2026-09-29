@@ -45,7 +45,7 @@ public static class DataSeed
     /// <summary>
     /// Список клиентов
     /// </summary>
-    public static List<Costumer> Costumers = new()
+    public static List<Costumer> Costumers { get; } = new()
     {
         new Costumer { Id = 0, LastName = "Евлампьев", FirstName = "Евлампий", MiddleName = "Евлампиевич", PhoneNumber = "+79001112233" },
         new Costumer { Id = 1, LastName = "Сергеев", FirstName = "Александр", MiddleName = "Сильвестрович", PhoneNumber = "+79000000000" },
