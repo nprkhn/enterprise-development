@@ -1,4 +1,4 @@
-﻿using DryCleaner.Domain.Enums;
+﻿using DryCleaner.Shared.Enums;
 
 namespace DryCleaner.Domain.Entities;
 
@@ -7,7 +7,20 @@ namespace DryCleaner.Domain.Entities;
 /// </summary>
 public class ItemCategory
 {
+    /// <summary>
+    /// Идентификатор категории изделия
+    /// </summary>
+    public int Id { get; set; }
+    /// <summary>
+    /// Название изделия
+    /// </summary>
     public required string Name { get; set; }
+    /// <summary>
+    /// Рекомендованный вид чистки
+    /// </summary>
     public CleaningType RecommendedCleaning { get; set; }
-    public int Price { get; set; }
+    /// <summary>
+    /// Цена за химчистку
+    /// </summary>
+    public decimal Price { get; set; }
 }
