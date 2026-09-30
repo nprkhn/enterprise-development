@@ -39,17 +39,17 @@ public class DryCleanerTests
 
         var top5 = DataSeed.Orders
             .Where(o => o.AcceptanceDate >= from && o.AcceptanceDate <= to)
-            .GroupBy(o => o.Costumer)
-            .Select(g => new { Costumer = g.Key, Items = g.Count() })
+            .GroupBy(o => o.Customer)
+            .Select(g => new { Customer = g.Key, Items = g.Count() })
             .OrderByDescending(x => x.Items)
-            .ThenBy(x => x.Costumer.LastName)
+            .ThenBy(x => x.Customer.LastName)
             .Take(5)
             .ToList();
 
         Assert.Equal(5, top5.Count);
-        Assert.Equal("Евлампьев", top5[0].Costumer.LastName);
-        Assert.Equal("Евлампий", top5[0].Costumer.FirstName);
-        Assert.Equal("Евлампиевич", top5[0].Costumer.MiddleName);
+        Assert.Equal("Евлампьев", top5[0].Customer.LastName);
+        Assert.Equal("Евлампий", top5[0].Customer.FirstName);
+        Assert.Equal("Евлампиевич", top5[0].Customer.Patronymic);
         Assert.Equal(4, top5[0].Items);
         Assert.Equal(10, top5.Sum(x => x.Items));
     }
@@ -61,20 +61,19 @@ public class DryCleanerTests
     public void ClientsWithLongestProcessing()
     {
         var maxCompletionDays = DataSeed.Orders.Max(o => o.CompletionDays);
-        var costumers = DataSeed.Orders
+        var customers = DataSeed.Orders
             .Where(o => o.CompletionDays == maxCompletionDays)
-            .Select(o => o.Costumer)
+            .Select(o => o.Customer)
             .Distinct()
             .OrderBy(c => c.LastName)
             .ThenBy(c => c.FirstName)
-            .ThenBy(c => c.MiddleName)
+            .ThenBy(c => c.Patronymic)
             .ToList();
 
         Assert.Equal(10, maxCompletionDays);
-        Assert.Equal(1, costumers.Count);
-        Assert.Equal("Вазовский", costumers[0].LastName);
-        Assert.Equal("Майк", costumers[0].FirstName);
-        Assert.Equal("Петрович", costumers[0].MiddleName);
+        Assert.Equal(1, customers.Count);
+        Assert.Equal("Вазовский", customers[0].LastName);
+        Assert.Equal("Майк", customers[0].FirstName);
     }
 
     /// <summary>
@@ -128,19 +127,19 @@ public class DryCleanerTests
     public void TopSpender()
     {
         var top = DataSeed.Orders
-            .GroupBy(o => o.Costumer)
+            .GroupBy(o => o.Customer)
             .Select(g => new
             {
-                Costumer = g.Key,
+                Customer = g.Key,
                 Total = g.Sum(o => o.Item.Category.Price)
             })
             .OrderByDescending(x => x.Total)
-            .ThenBy(x => x.Costumer.LastName)
+            .ThenBy(x => x.Customer.LastName)
             .First();
 
-        Assert.Equal("Евлампьев", top.Costumer.LastName);
-        Assert.Equal("Евлампий", top.Costumer.FirstName);
-        Assert.Equal("Евлампиевич", top.Costumer.MiddleName);
+        Assert.Equal("Евлампьев", top.Customer.LastName);
+        Assert.Equal("Евлампий", top.Customer.FirstName);
+        Assert.Equal("Евлампиевич", top.Customer.Patronymic);
         Assert.Equal(10600, top.Total);
     }
 }

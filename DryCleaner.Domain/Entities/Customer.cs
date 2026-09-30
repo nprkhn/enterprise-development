@@ -3,7 +3,7 @@
 /// <summary>
 /// Клиент химчистки
 /// </summary>
-public class Costumer
+public class Customer
 {
     /// <summary>
     /// Идентификатор клиента
@@ -16,7 +16,7 @@ public class Costumer
     /// <summary>
     /// Отчество клиента
     /// </summary>
-    public required string MiddleName { get; set; }
+    public string? Patronymic { get; set; }
     /// <summary>
     /// Фамилия клиента
     /// </summary>

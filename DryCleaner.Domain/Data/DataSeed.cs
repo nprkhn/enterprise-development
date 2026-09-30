@@ -34,7 +34,7 @@ public static class DataSeed
         new Item { Id = 1,Name = "Пиджак", Category = Categories[3], CategoryId = 3, Material = "Хлопок" },
         new Item { Id = 2, Name = "Платье свадебное", Category = Categories[2], CategoryId = 2, Material = "Шёлк" },
         new Item { Id = 3, Name = "Рубашка в клеточку", Category = Categories[4], CategoryId = 4, Material = "Хлопок" },
-        new Item { Id = 4, Name = "Брюки замшевые", Category = Categories[5], CategoryId = 5, Material = "Шерсть" },
+        new Item { Id = 4, Name = "Брюки", Category = Categories[5], CategoryId = 5, Material = "Шерсть" },
         new Item { Id = 5, Name = "Куртка", Category = Categories[8], CategoryId = 8, Material = "Кожа" },
         new Item { Id = 6, Name = "Шуба норковая", Category = Categories[9], CategoryId = 9, Material = "Мех" },
         new Item { Id = 7, Name = "Костюм тройка", Category = Categories[3], CategoryId = 3, Material = "Шерсть" },
@@ -45,18 +45,18 @@ public static class DataSeed
     /// <summary>
     /// Список клиентов
     /// </summary>
-    public static List<Costumer> Costumers { get; } = new()
+    public static List<Customer> Customers { get; } = new()
     {
-        new Costumer { Id = 0, LastName = "Евлампьев", FirstName = "Евлампий", MiddleName = "Евлампиевич", PhoneNumber = "+79001112233" },
-        new Costumer { Id = 1, LastName = "Сергеев", FirstName = "Александр", MiddleName = "Сильвестрович", PhoneNumber = "+79000000000" },
-        new Costumer { Id = 2, LastName = "Сергеев", FirstName = "Александр", MiddleName = "Александрович", PhoneNumber = "+79000000001" },
-        new Costumer { Id = 3, LastName = "Баринов", FirstName = "Виктор", MiddleName = "Петрович", PhoneNumber = "+78005553535" },
-        new Costumer { Id = 4, LastName = "Уайт", FirstName = "Уолтер", MiddleName = "Хартвелл", PhoneNumber = "+15430000567" },
-        new Costumer { Id = 5, LastName = "Вазовский", FirstName = "Майк", MiddleName = "Петрович", PhoneNumber = "+23334444555" },
-        new Costumer { Id = 6, LastName = "Гудман", FirstName = "Сол", MiddleName = "Александрович", PhoneNumber = "+77777777777" },
-        new Costumer { Id = 7, LastName = "Чигур", FirstName = "Антон", MiddleName = "Валерьевич", PhoneNumber = "+66666666666" },
-        new Costumer { Id = 8, LastName = "Пинкман", FirstName = "Джесси", MiddleName = "Евгеньевич", PhoneNumber = "+977712935030" },
-        new Costumer { Id = 9, LastName = "Скалетта", FirstName = "Вито", MiddleName = "Антонович", PhoneNumber = "+79004301983" },
+        new Customer { Id = 0, LastName = "Евлампьев", FirstName = "Евлампий", Patronymic = "Евлампиевич", PhoneNumber = "+79001112233" },
+        new Customer { Id = 1, LastName = "Сергеев", FirstName = "Александр", Patronymic = "Сильвестрович", PhoneNumber = "+79000000000" },
+        new Customer { Id = 2, LastName = "Сергеев", FirstName = "Александр", Patronymic = "Александрович", PhoneNumber = "+79000000001" },
+        new Customer { Id = 3, LastName = "Баринов", FirstName = "Виктор", Patronymic = "Петрович", PhoneNumber = "+78005553535" },
+        new Customer { Id = 4, LastName = "Уайт", FirstName = "Уолтер", PhoneNumber = "+15430000567" },
+        new Customer { Id = 5, LastName = "Вазовский", FirstName = "Майк", PhoneNumber = "+23334444555" },
+        new Customer { Id = 6, LastName = "Гудман", FirstName = "Сол", PhoneNumber = "+77777777777" },
+        new Customer { Id = 7, LastName = "Чигур", FirstName = "Антон", PhoneNumber = "+66666666666" },
+        new Customer { Id = 8, LastName = "Пинкман", FirstName = "Джесси", PhoneNumber = "+977712935030" },
+        new Customer { Id = 9, LastName = "Скалетта", FirstName = "Вито", PhoneNumber = "+79004301983" },
     };
 
     /// <summary>
@@ -64,22 +64,22 @@ public static class DataSeed
     /// </summary>
     public static List<Order> Orders { get; } = new()
     {
-        new Order { Id = 0, Costumer = Costumers[0], CostumerId = 0, Item = Items[0], ItemId = 0, AcceptanceDate = new(2025, 4, 10), CompletionDays = 5, Status = OrderStatus.Issued },
-        new Order { Id = 1, Costumer = Costumers[1], CostumerId = 1, Item = Items[1], ItemId = 1, AcceptanceDate = new(2025, 5, 15), CompletionDays = 7, Status = OrderStatus.Issued },
-        new Order { Id = 2, Costumer = Costumers[2], CostumerId = 2, Item = Items[2], ItemId = 2, AcceptanceDate = new(2025, 6, 20), CompletionDays = 3, Status = OrderStatus.Issued },
-        new Order { Id = 3, Costumer = Costumers[0], CostumerId = 0, Item = Items[1], ItemId = 1, AcceptanceDate = new(2025, 7, 25), CompletionDays = 2, Status = OrderStatus.Issued },
-        new Order { Id = 4, Costumer = Costumers[3], CostumerId = 3, Item = Items[3], ItemId = 3, AcceptanceDate = new(2025, 8, 30), CompletionDays = 4, Status = OrderStatus.Issued },
-        new Order { Id = 5, Costumer = Costumers[4], CostumerId = 4, Item = Items[4], ItemId = 4, AcceptanceDate = new(2025, 10, 5), CompletionDays = 6, Status = OrderStatus.Issued },
-        new Order { Id = 6, Costumer = Costumers[5], CostumerId = 5, Item = Items[5], ItemId = 5, AcceptanceDate = new(2025, 11, 10), CompletionDays = 10, Status = OrderStatus.Issued },
-        new Order { Id = 7, Costumer = Costumers[0], CostumerId = 0, Item = Items[7], ItemId = 7, AcceptanceDate = new(2025, 12, 15), CompletionDays = 3, Status = OrderStatus.Issued },
-        new Order { Id = 8, Costumer = Costumers[6], CostumerId = 6, Item = Items[8], ItemId = 8, AcceptanceDate = new(2026, 1, 20), CompletionDays = 5, Status = OrderStatus.Issued },
-        new Order { Id = 9, Costumer = Costumers[7], CostumerId = 7, Item = Items[9], ItemId = 9, AcceptanceDate = new(2026, 2, 1), CompletionDays = 4, Status = OrderStatus.Issued },
-        new Order { Id = 10, Costumer = Costumers[8], CostumerId = 8, Item = Items[0], ItemId = 0, AcceptanceDate = new(2026, 2, 10), CompletionDays = 2, Status = OrderStatus.Issued },
-        new Order { Id = 11, Costumer = Costumers[1], CostumerId = 1, Item = Items[3], ItemId = 3, AcceptanceDate = new(2026, 2, 20), CompletionDays = 6, Status = OrderStatus.Ready },
-        new Order { Id = 12, Costumer = Costumers[2], CostumerId = 2, Item = Items[2], ItemId = 2, AcceptanceDate = new(2026, 3, 1), CompletionDays = 5, Status = OrderStatus.InProgress },
-        new Order { Id = 13, Costumer = Costumers[9], CostumerId = 9, Item = Items[5], ItemId = 5, AcceptanceDate = new(2026, 3, 5), CompletionDays = 2, Status = OrderStatus.InProgress },
-        new Order { Id = 14, Costumer = Costumers[0], CostumerId = 0, Item = Items[6], ItemId = 6, AcceptanceDate = new(2026, 3, 10), CompletionDays = 3, Status = OrderStatus.InProgress },
-        new Order { Id = 15, Costumer = Costumers[3], CostumerId = 3, Item = Items[2], ItemId = 2, AcceptanceDate = new(2024, 8, 10), CompletionDays = 5, Status = OrderStatus.Issued },
-        new Order { Id = 16, Costumer = Costumers[4], CostumerId = 4, Item = Items[4], ItemId = 4, AcceptanceDate = new(2024, 11, 20), CompletionDays = 4, Status = OrderStatus.Issued },
+        new Order { Id = 0, Customer = Customers[0], CustomerId = 0, Item = Items[0], ItemId = 0, AcceptanceDate = new(2025, 4, 10), CompletionDays = 5, Status = OrderStatus.Issued },
+        new Order { Id = 1, Customer = Customers[1], CustomerId = 1, Item = Items[1], ItemId = 1, AcceptanceDate = new(2025, 5, 15), CompletionDays = 7, Status = OrderStatus.Issued },
+        new Order { Id = 2, Customer = Customers[2], CustomerId = 2, Item = Items[2], ItemId = 2, AcceptanceDate = new(2025, 6, 20), CompletionDays = 3, Status = OrderStatus.Issued },
+        new Order { Id = 3, Customer = Customers[0], CustomerId = 0, Item = Items[1], ItemId = 1, AcceptanceDate = new(2025, 7, 25), CompletionDays = 2, Status = OrderStatus.Issued },
+        new Order { Id = 4, Customer = Customers[3], CustomerId = 3, Item = Items[3], ItemId = 3, AcceptanceDate = new(2025, 8, 30), CompletionDays = 4, Status = OrderStatus.Issued },
+        new Order { Id = 5, Customer = Customers[4], CustomerId = 4, Item = Items[4], ItemId = 4, AcceptanceDate = new(2025, 10, 5), CompletionDays = 6, Status = OrderStatus.Issued },
+        new Order { Id = 6, Customer = Customers[5], CustomerId = 5, Item = Items[5], ItemId = 5, AcceptanceDate = new(2025, 11, 10), CompletionDays = 10, Status = OrderStatus.Issued },
+        new Order { Id = 7, Customer = Customers[0], CustomerId = 0, Item = Items[7], ItemId = 7, AcceptanceDate = new(2025, 12, 15), CompletionDays = 3, Status = OrderStatus.Issued },
+        new Order { Id = 8, Customer = Customers[6], CustomerId = 6, Item = Items[8], ItemId = 8, AcceptanceDate = new(2026, 1, 20), CompletionDays = 5, Status = OrderStatus.Issued },
+        new Order { Id = 9, Customer = Customers[7], CustomerId = 7, Item = Items[9], ItemId = 9, AcceptanceDate = new(2026, 2, 1), CompletionDays = 4, Status = OrderStatus.Issued },
+        new Order { Id = 10, Customer = Customers[8], CustomerId = 8, Item = Items[0], ItemId = 0, AcceptanceDate = new(2026, 2, 10), CompletionDays = 2, Status = OrderStatus.Issued },
+        new Order { Id = 11, Customer = Customers[1], CustomerId = 1, Item = Items[3], ItemId = 3, AcceptanceDate = new(2026, 2, 20), CompletionDays = 6, Status = OrderStatus.Ready },
+        new Order { Id = 12, Customer = Customers[2], CustomerId = 2, Item = Items[2], ItemId = 2, AcceptanceDate = new(2026, 3, 1), CompletionDays = 5, Status = OrderStatus.InProgress },
+        new Order { Id = 13, Customer = Customers[9], CustomerId = 9, Item = Items[5], ItemId = 5, AcceptanceDate = new(2026, 3, 5), CompletionDays = 2, Status = OrderStatus.InProgress },
+        new Order { Id = 14, Customer = Customers[0], CustomerId = 0, Item = Items[6], ItemId = 6, AcceptanceDate = new(2026, 3, 10), CompletionDays = 3, Status = OrderStatus.InProgress },
+        new Order { Id = 15, Customer = Customers[3], CustomerId = 3, Item = Items[2], ItemId = 2, AcceptanceDate = new(2024, 8, 10), CompletionDays = 5, Status = OrderStatus.Issued },
+        new Order { Id = 16, Customer = Customers[4], CustomerId = 4, Item = Items[4], ItemId = 4, AcceptanceDate = new(2024, 11, 20), CompletionDays = 4, Status = OrderStatus.Issued },
     };
 }

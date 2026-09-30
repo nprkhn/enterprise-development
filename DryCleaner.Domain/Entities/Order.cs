@@ -14,11 +14,11 @@ public class Order
     /// <summary>
     /// Клиент, оформивший заказ
     /// </summary>
-    public required Costumer Costumer { get; set; }
+    public required Customer Customer { get; set; }
     /// <summary>
     /// Идентификатор клиента
     /// </summary>
-    public int CostumerId { get; set; }
+    public int CustomerId { get; set; }
     /// <summary>
     /// Изделие
     /// </summary>
