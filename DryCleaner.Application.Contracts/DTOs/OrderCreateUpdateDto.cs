@@ -1,28 +1,28 @@
-using System.ComponentModel.DataAnnotations;
+п»їusing System.ComponentModel.DataAnnotations;
 using DryCleaner.Shared.Enums;
 
 namespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO для создания или обновления заказа
+/// DTO РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РёР»Рё РѕР±РЅРѕРІР»РµРЅРёСЏ Р·Р°РєР°Р·Р°
 /// </summary>
-/// <param name="CustomerId">Идентификатор клиента</param>
-/// <param name="ItemId">Идентификатор изделия</param>
-/// <param name="AcceptanceDate">Дата приема</param>
-/// <param name="CompletionDays">Время выполнения</param>
-/// <param name="Status">Статус заказа</param>
+/// <param name="CustomerId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°</param>
+/// <param name="ItemId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РёР·РґРµР»РёСЏ</param>
+/// <param name="AcceptanceDate">Р”Р°С‚Р° РїСЂРёРµРјР°</param>
+/// <param name="CompletionDays">Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ</param>
+/// <param name="Status">РЎС‚Р°С‚СѓСЃ Р·Р°РєР°Р·Р°</param>
 public record OrderCreateUpdateDto(
-    [Required(ErrorMessage = "Идентификатор клиента обязателен для заполнения!")]
+    [Required(ErrorMessage = "РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р° РѕР±СЏР·Р°С‚РµР»РµРЅ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
     int CustomerId,
 
-    [Required(ErrorMessage = "Идентификатор изделия обязателен для заполнения!")]
+    [Required(ErrorMessage = "РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РёР·РґРµР»РёСЏ РѕР±СЏР·Р°С‚РµР»РµРЅ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
     int ItemId,
 
-    [Required(ErrorMessage = "Дата приема обязательна для заполнения!")]
+    [Required(ErrorMessage = "Р”Р°С‚Р° РїСЂРёРµРјР° РѕР±СЏР·Р°С‚РµР»СЊРЅР° РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
     DateOnly AcceptanceDate,
 
-    [Required(ErrorMessage = "Срок выполнения обязателен для заполнения!")]
-    [Range(1, 365, ErrorMessage = "Некорректный срок выполнения!")]
+    [Required(ErrorMessage = "РЎСЂРѕРє РІС‹РїРѕР»РЅРµРЅРёСЏ РѕР±СЏР·Р°С‚РµР»РµРЅ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
+    [Range(1, 365, ErrorMessage = "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃСЂРѕРє РІС‹РїРѕР»РЅРµРЅРёСЏ!")]
     int CompletionDays,
 
     OrderStatus Status

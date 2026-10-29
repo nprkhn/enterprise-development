@@ -1,16 +1,16 @@
-using System.ComponentModel.DataAnnotations;
+п»їusing System.ComponentModel.DataAnnotations;
 using DryCleaner.Shared.Enums;
 
 namespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO для создания или обновления категории изделия
+/// DTO РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РёР»Рё РѕР±РЅРѕРІР»РµРЅРёСЏ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ
 /// </summary>
-/// <param name="Name">Название категории</param>
-/// <param name="RecommendedCleaning">Рекомендуемый вид чистки</param>
-/// <param name="Price">Стоимость обработки</param>
+/// <param name="Name">РќР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё</param>
+/// <param name="RecommendedCleaning">Р РµРєРѕРјРµРЅРґСѓРµРјС‹Р№ РІРёРґ С‡РёСЃС‚РєРё</param>
+/// <param name="Price">РЎС‚РѕРёРјРѕСЃС‚СЊ РѕР±СЂР°Р±РѕС‚РєРё</param>
 public record ItemCategoryCreateUpdateDto(
-    [Required(ErrorMessage = "Название категории обязательно для заполнения!")]
+    [Required(ErrorMessage = "РќР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
     string Name,
 
     CleaningType RecommendedCleaning,

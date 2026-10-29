@@ -1,18 +1,18 @@
-using DryCleaner.Application.Contracts.DTOs;
+п»їusing DryCleaner.Application.Contracts.DTOs;
 using DryCleaner.Application.Contracts.Interfaces;
 using DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Application.Services;
 
 /// <summary>
-/// Прикладные операции над изделиями
+/// РџСЂРёРєР»Р°РґРЅС‹Рµ РѕРїРµСЂР°С†РёРё РЅР°Рґ РёР·РґРµР»РёСЏРјРё
 /// </summary>
 public class ItemService(IItemRepository itemRepository, IItemCategoryRepository categoryRepository) : IItemService
 {
     /// <inheritdoc />
     public ItemDto Create(ItemCreateUpdateDto dto)
     {
-        var category = categoryRepository.GetById(dto.CategoryId) ?? throw new KeyNotFoundException($"Категория с идентификатором {dto.CategoryId} не найдена");
+        var category = categoryRepository.GetById(dto.CategoryId) ?? throw new KeyNotFoundException($"РљР°С‚РµРіРѕСЂРёСЏ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {dto.CategoryId} РЅРµ РЅР°Р№РґРµРЅР°");
 
         var item = new Item
         {
@@ -63,7 +63,7 @@ public class ItemService(IItemRepository itemRepository, IItemCategoryRepository
     /// <inheritdoc />
     public ItemDto Update(ItemCreateUpdateDto dto, int id)
     {
-        var category = categoryRepository.GetById(dto.CategoryId) ?? throw new KeyNotFoundException($"Категория с идентификатором {dto.CategoryId} не найдена");
+        var category = categoryRepository.GetById(dto.CategoryId) ?? throw new KeyNotFoundException($"РљР°С‚РµРіРѕСЂРёСЏ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {dto.CategoryId} РЅРµ РЅР°Р№РґРµРЅР°");
 
         var item = new Item
         {
@@ -77,7 +77,7 @@ public class ItemService(IItemRepository itemRepository, IItemCategoryRepository
         var updated = itemRepository.Update(item);
         if (updated is null)
         {
-            throw new KeyNotFoundException($"Изделие с идентификатором {id} не найдено");
+            throw new KeyNotFoundException($"РР·РґРµР»РёРµ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {id} РЅРµ РЅР°Р№РґРµРЅРѕ");
         }
 
         return new ItemDto(

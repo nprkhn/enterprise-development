@@ -1,18 +1,18 @@
-using DryCleaner.Shared.Enums;
+п»їusing DryCleaner.Shared.Enums;
 
 namespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO заказа
+/// DTO Р·Р°РєР°Р·Р°
 /// </summary>
-/// <param name="Id">Идентификатор заказа</param>
-/// <param name="Customer">Клиент</param>
-/// <param name="CustomerId">Идентификатор клиента</param>
-/// <param name="Item">Изделие</param>
-/// <param name="ItemId">Идентификатор изделия</param>
-/// <param name="AcceptanceDate">Дата приема заказа</param>
-/// <param name="CompletionDays">Время выполнения заказа</param>
-/// <param name="Status">Статус заказа</param>
+/// <param name="Id">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РєР°Р·Р°</param>
+/// <param name="Customer">РљР»РёРµРЅС‚</param>
+/// <param name="CustomerId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°</param>
+/// <param name="Item">РР·РґРµР»РёРµ</param>
+/// <param name="ItemId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РёР·РґРµР»РёСЏ</param>
+/// <param name="AcceptanceDate">Р”Р°С‚Р° РїСЂРёРµРјР° Р·Р°РєР°Р·Р°</param>
+/// <param name="CompletionDays">Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РєР°Р·Р°</param>
+/// <param name="Status">РЎС‚Р°С‚СѓСЃ Р·Р°РєР°Р·Р°</param>
 public record OrderDto(
     int Id,
     CustomerDto Customer,

@@ -1,10 +1,10 @@
-using DryCleaner.Application.Contracts.Interfaces;
+п»їusing DryCleaner.Application.Contracts.Interfaces;
 using DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Infrastructure.InMemory.Repositories;
 
 /// <summary>
-/// Общая реализация CRUD-операций для хранения доменных сущностей в памяти
+/// РћР±С‰Р°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ CRUD-РѕРїРµСЂР°С†РёР№ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РґРѕРјРµРЅРЅС‹С… СЃСѓС‰РЅРѕСЃС‚РµР№ РІ РїР°РјСЏС‚Рё
 /// </summary>
 public abstract class InMemoryRepository<T>(IList<T> entities) : IRepository<T>
     where T : IEntity

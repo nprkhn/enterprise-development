@@ -1,11 +1,11 @@
-namespace DryCleaner.Application.Contracts.DTOs.Analytics;
+п»їnamespace DryCleaner.Application.Contracts.DTOs.Analytics;
 
 /// <summary>
-/// Информация о времени обработки заказа
+/// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РІСЂРµРјРµРЅРё РѕР±СЂР°Р±РѕС‚РєРё Р·Р°РєР°Р·Р°
 /// </summary>
-/// <param name="OrderId">Идентификатор заказа</param>
-/// <param name="CustomerName">ФИО клиента</param>
-/// <param name="CompletionDays">Время обработки заказа</param>
+/// <param name="OrderId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РєР°Р·Р°</param>
+/// <param name="CustomerName">Р¤РРћ РєР»РёРµРЅС‚Р°</param>
+/// <param name="CompletionDays">Р’СЂРµРјСЏ РѕР±СЂР°Р±РѕС‚РєРё Р·Р°РєР°Р·Р°</param>
 public record OrderProcessingTimeDto(
     int OrderId,
     string CustomerName,

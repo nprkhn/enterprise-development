@@ -1,9 +1,9 @@
-using DryCleaner.Domain.Entities;
+п»їusing DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Application.Contracts.Interfaces;
 
 /// <summary>
-/// Интерфейс репозитория для работы с клиентами
+/// РРЅС‚РµСЂС„РµР№СЃ СЂРµРїРѕР·РёС‚РѕСЂРёСЏ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РєР»РёРµРЅС‚Р°РјРё
 /// </summary>
 public interface ICustomerRepository : IRepository<Customer>
 {

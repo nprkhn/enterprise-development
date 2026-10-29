@@ -1,11 +1,11 @@
-namespace DryCleaner.Application.Contracts.DTOs.Analytics;
+п»їnamespace DryCleaner.Application.Contracts.DTOs.Analytics;
 
 /// <summary>
-/// Информация о количестве заказов по категориям изделий
+/// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕР»РёС‡РµСЃС‚РІРµ Р·Р°РєР°Р·РѕРІ РїРѕ РєР°С‚РµРіРѕСЂРёСЏРј РёР·РґРµР»РёР№
 /// </summary>
-/// <param name="CategoryId">Идентификатор категории изделия</param>
-/// <param name="CategoryName">Название категории изделия</param>
-/// <param name="OrderCount">Количество заказов с данной категорией изделия</param>
+/// <param name="CategoryId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ</param>
+/// <param name="CategoryName">РќР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ</param>
+/// <param name="OrderCount">РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ СЃ РґР°РЅРЅРѕР№ РєР°С‚РµРіРѕСЂРёРµР№ РёР·РґРµР»РёСЏ</param>
 public record CategoryPopularityDto(
     int CategoryId,
     string CategoryName,

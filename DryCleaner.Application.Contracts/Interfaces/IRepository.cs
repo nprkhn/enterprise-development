@@ -1,34 +1,34 @@
-using DryCleaner.Domain.Entities;
+п»їusing DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Application.Contracts.Interfaces;
 
 /// <summary>
-/// Базовый интерфейс для работы с сущностями
+/// Р‘Р°Р·РѕРІС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ СЃСѓС‰РЅРѕСЃС‚СЏРјРё
 /// </summary>
 public interface IRepository<T> where T : IEntity
 {
     /// <summary>
-    /// Получить все записи
+    /// РџРѕР»СѓС‡РёС‚СЊ РІСЃРµ Р·Р°РїРёСЃРё
     /// </summary>
     IList<T> GetAll();
 
     /// <summary>
-    /// Получить запись по идентификатору
+    /// РџРѕР»СѓС‡РёС‚СЊ Р·Р°РїРёСЃСЊ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
     /// </summary>
     T? GetById(int id);
 
     /// <summary>
-    /// Добавить запись
+    /// Р”РѕР±Р°РІРёС‚СЊ Р·Р°РїРёСЃСЊ
     /// </summary>
     T Add(T entity);
 
     /// <summary>
-    /// Обновить запись
+    /// РћР±РЅРѕРІРёС‚СЊ Р·Р°РїРёСЃСЊ
     /// </summary>
     T? Update(T entity);
 
     /// <summary>
-    /// Удалить запись
+    /// РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ
     /// </summary>
     bool Delete(int id);
 }

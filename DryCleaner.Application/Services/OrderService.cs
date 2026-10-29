@@ -1,11 +1,11 @@
-using DryCleaner.Application.Contracts.DTOs;
+п»їusing DryCleaner.Application.Contracts.DTOs;
 using DryCleaner.Application.Contracts.Interfaces;
 using DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Application.Services;
 
 /// <summary>
-/// Прикладные операции над заказами
+/// РџСЂРёРєР»Р°РґРЅС‹Рµ РѕРїРµСЂР°С†РёРё РЅР°Рґ Р·Р°РєР°Р·Р°РјРё
 /// </summary>
 public class OrderService(
     IOrderRepository orderRepository,
@@ -15,9 +15,9 @@ public class OrderService(
     /// <inheritdoc />
     public OrderDto Create(OrderCreateUpdateDto dto)
     {
-        var customer = customerRepository.GetById(dto.CustomerId) ?? throw new KeyNotFoundException($"Клиент с идентификатором {dto.CustomerId} не найден");
+        var customer = customerRepository.GetById(dto.CustomerId) ?? throw new KeyNotFoundException($"РљР»РёРµРЅС‚ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {dto.CustomerId} РЅРµ РЅР°Р№РґРµРЅ");
 
-        var item = itemRepository.GetById(dto.ItemId) ?? throw new KeyNotFoundException($"Изделие с идентификатором {dto.ItemId} не найдено");
+        var item = itemRepository.GetById(dto.ItemId) ?? throw new KeyNotFoundException($"РР·РґРµР»РёРµ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {dto.ItemId} РЅРµ РЅР°Р№РґРµРЅРѕ");
 
         var order = new Order
         {
@@ -95,9 +95,9 @@ public class OrderService(
     /// <inheritdoc />
     public OrderDto Update(OrderCreateUpdateDto dto, int id)
     {
-        var customer = customerRepository.GetById(dto.CustomerId) ?? throw new KeyNotFoundException($"Клиент с идентификатором {dto.CustomerId} не найден");
+        var customer = customerRepository.GetById(dto.CustomerId) ?? throw new KeyNotFoundException($"РљР»РёРµРЅС‚ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {dto.CustomerId} РЅРµ РЅР°Р№РґРµРЅ");
 
-        var item = itemRepository.GetById(dto.ItemId) ?? throw new KeyNotFoundException($"Изделие с идентификатором {dto.ItemId} не найдено");
+        var item = itemRepository.GetById(dto.ItemId) ?? throw new KeyNotFoundException($"РР·РґРµР»РёРµ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {dto.ItemId} РЅРµ РЅР°Р№РґРµРЅРѕ");
 
         var order = new Order
         {
@@ -114,7 +114,7 @@ public class OrderService(
         var updated = orderRepository.Update(order);
         if (updated is null)
         {
-            throw new KeyNotFoundException($"Заказ с идентификатором {id} не найден");
+            throw new KeyNotFoundException($"Р—Р°РєР°Р· СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {id} РЅРµ РЅР°Р№РґРµРЅ");
         }
 
         return new OrderDto(

@@ -1,11 +1,11 @@
-using DryCleaner.Application.Contracts.DTOs;
+п»їusing DryCleaner.Application.Contracts.DTOs;
 using DryCleaner.Application.Contracts.Interfaces;
 using DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Application.Services;
 
 /// <summary>
-/// Прикладные операции над категориями изделий
+/// РџСЂРёРєР»Р°РґРЅС‹Рµ РѕРїРµСЂР°С†РёРё РЅР°Рґ РєР°С‚РµРіРѕСЂРёСЏРјРё РёР·РґРµР»РёР№
 /// </summary>
 public class ItemCategoryService(IItemCategoryRepository categoryRepository) : IItemCategoryService
 {
@@ -68,7 +68,7 @@ public class ItemCategoryService(IItemCategoryRepository categoryRepository) : I
         var updated = categoryRepository.Update(category);
         if (updated is null)
         {
-            throw new KeyNotFoundException($"Категория с идентификатором {id} не найдена");
+            throw new KeyNotFoundException($"РљР°С‚РµРіРѕСЂРёСЏ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {id} РЅРµ РЅР°Р№РґРµРЅР°");
         }
 
         return new ItemCategoryDto(

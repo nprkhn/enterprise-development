@@ -1,12 +1,12 @@
-namespace DryCleaner.Application.Contracts.DTOs.Analytics;
+п»їnamespace DryCleaner.Application.Contracts.DTOs.Analytics;
 
 /// <summary>
-/// Информация о заказах, находящихся в процессе выполнения
+/// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°РєР°Р·Р°С…, РЅР°С…РѕРґСЏС‰РёС…СЃСЏ РІ РїСЂРѕС†РµСЃСЃРµ РІС‹РїРѕР»РЅРµРЅРёСЏ
 /// </summary>
-/// <param name="OrderId">Идентификатор заказа</param>
-/// <param name="CustomerName">ФИО клиента</param>
-/// <param name="AcceptanceDate">Дата приёма изделия</param>
-/// <param name="Status">Статус заказа</param>
+/// <param name="OrderId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РєР°Р·Р°</param>
+/// <param name="CustomerName">Р¤РРћ РєР»РёРµРЅС‚Р°</param>
+/// <param name="AcceptanceDate">Р”Р°С‚Р° РїСЂРёС‘РјР° РёР·РґРµР»РёСЏ</param>
+/// <param name="Status">РЎС‚Р°С‚СѓСЃ Р·Р°РєР°Р·Р°</param>
 public record OrderInProgressDto(
     int OrderId,
     string CustomerName,

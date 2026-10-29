@@ -1,34 +1,34 @@
-using DryCleaner.Application.Contracts.DTOs.Analytics;
+п»їusing DryCleaner.Application.Contracts.DTOs.Analytics;
 
 namespace DryCleaner.Application.Contracts.Interfaces;
 
 /// <summary>
-/// Определяет операции получения аналитической информации
+/// РћРїСЂРµРґРµР»СЏРµС‚ РѕРїРµСЂР°С†РёРё РїРѕР»СѓС‡РµРЅРёСЏ Р°РЅР°Р»РёС‚РёС‡РµСЃРєРѕР№ РёРЅС„РѕСЂРјР°С†РёРё
 /// </summary>
 public interface IAnalyticsService
 {
     /// <summary>
-    /// Получает заказы в обработке, упорядоченные по дате приема
+    /// РџРѕР»СѓС‡Р°РµС‚ Р·Р°РєР°Р·С‹ РІ РѕР±СЂР°Р±РѕС‚РєРµ, СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹Рµ РїРѕ РґР°С‚Рµ РїСЂРёРµРјР°
     /// </summary>
     IList<OrderInProgressDto> GetOrdersInProgress();
 
     /// <summary>
-    /// Получает топ-5 клиентов по числу сданных изделий за выбранный период
+    /// РџРѕР»СѓС‡Р°РµС‚ С‚РѕРї-5 РєР»РёРµРЅС‚РѕРІ РїРѕ С‡РёСЃР»Сѓ СЃРґР°РЅРЅС‹С… РёР·РґРµР»РёР№ Р·Р° РІС‹Р±СЂР°РЅРЅС‹Р№ РїРµСЂРёРѕРґ
     /// </summary>
     IList<CustomerOrderCountDto> GetTop5CustomersByItems(DateOnly periodStart, DateOnly periodEnd);
 
     /// <summary>
-    /// Получает клиентов, чьи заказы обрабатывались дольше всего
+    /// РџРѕР»СѓС‡Р°РµС‚ РєР»РёРµРЅС‚РѕРІ, С‡СЊРё Р·Р°РєР°Р·С‹ РѕР±СЂР°Р±Р°С‚С‹РІР°Р»РёСЃСЊ РґРѕР»СЊС€Рµ РІСЃРµРіРѕ
     /// </summary>
     IList<OrderProcessingTimeDto> GetCustomersWithLongestProcessing();
 
     /// <summary>
-    /// Получает топ-5 популярных и непопулярных категорий изделий
+    /// РџРѕР»СѓС‡Р°РµС‚ С‚РѕРї-5 РїРѕРїСѓР»СЏСЂРЅС‹С… Рё РЅРµРїРѕРїСѓР»СЏСЂРЅС‹С… РєР°С‚РµРіРѕСЂРёР№ РёР·РґРµР»РёР№
     /// </summary>
     IList<CategoryPopularityDto> GetTop5PopularCategories();
 
     /// <summary>
-    /// Получает клиента с наибольшей суммой заказов
+    /// РџРѕР»СѓС‡Р°РµС‚ РєР»РёРµРЅС‚Р° СЃ РЅР°РёР±РѕР»СЊС€РµР№ СЃСѓРјРјРѕР№ Р·Р°РєР°Р·РѕРІ
     /// </summary>
     TotalSpentCustomerDto? GetCustomerWithMaxTotalSpent();
 }

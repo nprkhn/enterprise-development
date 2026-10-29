@@ -1,11 +1,11 @@
-namespace DryCleaner.Application.Contracts.DTOs.Analytics;
+п»їnamespace DryCleaner.Application.Contracts.DTOs.Analytics;
 
 /// <summary>
-/// Информация о количестве заказов клиента
+/// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕР»РёС‡РµСЃС‚РІРµ Р·Р°РєР°Р·РѕРІ РєР»РёРµРЅС‚Р°
 /// </summary>
-/// <param name="CustomerId">Идентификатор клиента</param>
-/// <param name="CustomerName">ФИО клиента</param>
-/// <param name="OrderCount">Количество заказов клиента</param>
+/// <param name="CustomerId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°</param>
+/// <param name="CustomerName">Р¤РРћ РєР»РёРµРЅС‚Р°</param>
+/// <param name="OrderCount">РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ РєР»РёРµРЅС‚Р°</param>
 public record CustomerOrderCountDto(
     int CustomerId,
     string CustomerName,

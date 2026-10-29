@@ -1,11 +1,11 @@
-using DryCleaner.Application.Contracts.DTOs;
+п»їusing DryCleaner.Application.Contracts.DTOs;
 using DryCleaner.Application.Contracts.Interfaces;
 using DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Application.Services;
 
 /// <summary>
-/// Прикладные операции над клиентами
+/// РџСЂРёРєР»Р°РґРЅС‹Рµ РѕРїРµСЂР°С†РёРё РЅР°Рґ РєР»РёРµРЅС‚Р°РјРё
 /// </summary>
 public class CustomerService(ICustomerRepository customerRepository) : ICustomerService
 {
@@ -73,7 +73,7 @@ public class CustomerService(ICustomerRepository customerRepository) : ICustomer
         var updated = customerRepository.Update(customer);
         if (updated is null)
         {
-            throw new KeyNotFoundException($"Клиент с идентификатором {id} не найден");
+            throw new KeyNotFoundException($"РљР»РёРµРЅС‚ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј {id} РЅРµ РЅР°Р№РґРµРЅ");
         }
 
         return new CustomerDto(

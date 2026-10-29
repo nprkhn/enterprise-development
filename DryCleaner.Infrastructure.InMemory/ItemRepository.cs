@@ -1,11 +1,11 @@
-using DryCleaner.Application.Contracts.Interfaces;
+п»їusing DryCleaner.Application.Contracts.Interfaces;
 using DryCleaner.Domain.Data;
 using DryCleaner.Domain.Entities;
 
 namespace DryCleaner.Infrastructure.InMemory.Repositories;
 
 /// <summary>
-/// Реализация репозитория для работы с изделиями в памяти
+/// Р РµР°Р»РёР·Р°С†РёСЏ СЂРµРїРѕР·РёС‚РѕСЂРёСЏ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РёР·РґРµР»РёСЏРјРё РІ РїР°РјСЏС‚Рё
 /// </summary>
 public class ItemRepository()
     : InMemoryRepository<Item>(DataSeed.Items.ToList()), IItemRepository

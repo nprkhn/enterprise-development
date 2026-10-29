@@ -1,13 +1,13 @@
-namespace DryCleaner.Application.Contracts.DTOs.Analytics;
+п»їnamespace DryCleaner.Application.Contracts.DTOs.Analytics;
 
 /// <summary>
-/// Информация об общей сумме заказов клиента
+/// РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕР±С‰РµР№ СЃСѓРјРјРµ Р·Р°РєР°Р·РѕРІ РєР»РёРµРЅС‚Р°
 /// </summary>
-/// <param name="CustomerId">Идентификатор клиента</param>
-/// <param name="LastName">Фамилия клиента</param>
-/// <param name="FirstName">Имя клиента</param>
-/// <param name="Patronymic">Отчество клиента</param>
-/// <param name="TotalSpentAmount">Сумма заказов</param>
+/// <param name="CustomerId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°</param>
+/// <param name="LastName">Р¤Р°РјРёР»РёСЏ РєР»РёРµРЅС‚Р°</param>
+/// <param name="FirstName">РРјСЏ РєР»РёРµРЅС‚Р°</param>
+/// <param name="Patronymic">РћС‚С‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚Р°</param>
+/// <param name="TotalSpentAmount">РЎСѓРјРјР° Р·Р°РєР°Р·РѕРІ</param>
 public record TotalSpentCustomerDto(
     int CustomerId,
     string LastName,

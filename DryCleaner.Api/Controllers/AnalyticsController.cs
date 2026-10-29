@@ -1,42 +1,42 @@
-using DryCleaner.Application.Contracts.Interfaces;
+п»їusing DryCleaner.Application.Contracts.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DryCleaner.Api.Controllers;
 
 /// <summary>
-/// API для получения аналитики
+/// API РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ Р°РЅР°Р»РёС‚РёРєРё
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class AnalyticsController(IAnalyticsService analyticsService, ILogger<AnalyticsController> logger) : ControllerBase
 {
     /// <summary>
-    /// Получает заказы, находящиеся в обработке
+    /// РџРѕР»СѓС‡Р°РµС‚ Р·Р°РєР°Р·С‹, РЅР°С…РѕРґСЏС‰РёРµСЃСЏ РІ РѕР±СЂР°Р±РѕС‚РєРµ
     /// </summary>
     [HttpGet("in-progress-orders")]
     public IActionResult GetInProgressOrders()
     {
         try
         {
-            logger.LogInformation("Запрос на получение заказов в обработке");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ РЅР° РїРѕР»СѓС‡РµРЅРёРµ Р·Р°РєР°Р·РѕРІ РІ РѕР±СЂР°Р±РѕС‚РєРµ");
             return Ok(analyticsService.GetOrdersInProgress());
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка в обработке");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РІ РѕР±СЂР°Р±РѕС‚РєРµ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Получает ТОП-5 клиентов по числу сданных изделий за выбранный период
+    /// РџРѕР»СѓС‡Р°РµС‚ РўРћРџ-5 РєР»РёРµРЅС‚РѕРІ РїРѕ С‡РёСЃР»Сѓ СЃРґР°РЅРЅС‹С… РёР·РґРµР»РёР№ Р·Р° РІС‹Р±СЂР°РЅРЅС‹Р№ РїРµСЂРёРѕРґ
     /// </summary>
     [HttpGet("top-5-customers")]
     public IActionResult GetTop5Customers([FromQuery] DateOnly start, [FromQuery] DateOnly end)
     {
         try
         {
-            logger.LogInformation("Запрос: Топ-5 клиентов за период");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РўРѕРї-5 РєР»РёРµРЅС‚РѕРІ Р·Р° РїРµСЂРёРѕРґ");
             if (start == default) start = new DateOnly(2025, 1, 1);
             if (end == default) end = new DateOnly(2026, 3, 15);
 
@@ -48,64 +48,64 @@ public class AnalyticsController(IAnalyticsService analyticsService, ILogger<Ana
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка в аналитике");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РІ Р°РЅР°Р»РёС‚РёРєРµ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Получает клиентов с наибольшим временем обработки заказов
+    /// РџРѕР»СѓС‡Р°РµС‚ РєР»РёРµРЅС‚РѕРІ СЃ РЅР°РёР±РѕР»СЊС€РёРј РІСЂРµРјРµРЅРµРј РѕР±СЂР°Р±РѕС‚РєРё Р·Р°РєР°Р·РѕРІ
     /// </summary>
     [HttpGet("longest-processing")]
     public IActionResult GetLongestProcessing()
     {
         try
         {
-            logger.LogInformation("Запрос: Клиенты с наибольшим временем обработки заказов");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РљР»РёРµРЅС‚С‹ СЃ РЅР°РёР±РѕР»СЊС€РёРј РІСЂРµРјРµРЅРµРј РѕР±СЂР°Р±РѕС‚РєРё Р·Р°РєР°Р·РѕРІ");
             return Ok(analyticsService.GetCustomersWithLongestProcessing());
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка в аналитике");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РІ Р°РЅР°Р»РёС‚РёРєРµ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Получает наиболее популярные категории
+    /// РџРѕР»СѓС‡Р°РµС‚ РЅР°РёР±РѕР»РµРµ РїРѕРїСѓР»СЏСЂРЅС‹Рµ РєР°С‚РµРіРѕСЂРёРё
     /// </summary>
     [HttpGet("popular-categories")]
     public IActionResult GetPopularCategories()
     {
         try
         {
-            logger.LogInformation("Запрос: Наиболее популярные категории");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РќР°РёР±РѕР»РµРµ РїРѕРїСѓР»СЏСЂРЅС‹Рµ РєР°С‚РµРіРѕСЂРёРё");
             return Ok(analyticsService.GetTop5PopularCategories());
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка в аналитике");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РІ Р°РЅР°Р»РёС‚РёРєРµ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Получает клиента с наибольшими тратами
+    /// РџРѕР»СѓС‡Р°РµС‚ РєР»РёРµРЅС‚Р° СЃ РЅР°РёР±РѕР»СЊС€РёРјРё С‚СЂР°С‚Р°РјРё
     /// </summary>
     [HttpGet("top-spender")]
     public IActionResult GetTopSpender()
     {
         try
         {
-            logger.LogInformation("Запрос: Клиент с наибольшими тратами");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РљР»РёРµРЅС‚ СЃ РЅР°РёР±РѕР»СЊС€РёРјРё С‚СЂР°С‚Р°РјРё");
             var result = analyticsService.GetCustomerWithMaxTotalSpent();
-            if (result is null) return NotFound("Клиент не найден");
+            if (result is null) return NotFound("РљР»РёРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ");
             return Ok(result);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка в аналитике");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РІ Р°РЅР°Р»РёС‚РёРєРµ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 }

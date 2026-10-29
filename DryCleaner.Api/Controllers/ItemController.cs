@@ -1,43 +1,43 @@
-using DryCleaner.Application.Contracts.DTOs;
+п»їusing DryCleaner.Application.Contracts.DTOs;
 using DryCleaner.Application.Contracts.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DryCleaner.Api.Controllers;
 
 /// <summary>
-/// HTTP-операции для работы с изделиями
+/// HTTP-РѕРїРµСЂР°С†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РёР·РґРµР»РёСЏРјРё
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class ItemController(IItemService service, ILogger<ItemController> logger) : ControllerBase
 {
     /// <summary>
-    /// Получение всех изделий
+    /// РџРѕР»СѓС‡РµРЅРёРµ РІСЃРµС… РёР·РґРµР»РёР№
     /// </summary>
     [HttpGet]
     public IActionResult GetAll()
     {
         try 
         {
-            logger.LogInformation("Запрос на получение всех изделий");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ РЅР° РїРѕР»СѓС‡РµРЅРёРµ РІСЃРµС… РёР·РґРµР»РёР№");
             return Ok(service.GetAll()); 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при получении изделий");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РёР·РґРµР»РёР№");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Получение изделия по идентификатору
+    /// РџРѕР»СѓС‡РµРЅРёРµ РёР·РґРµР»РёСЏ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
     /// </summary>
     [HttpGet("{id:int}")]
     public IActionResult Get(int id)
     {
         try
         {
-            logger.LogInformation("Запрос: Получение изделия по идентификатору");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РџРѕР»СѓС‡РµРЅРёРµ РёР·РґРµР»РёСЏ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ");
 
             var result = service.Get(id);
             if (result is null) return NotFound();
@@ -45,20 +45,20 @@ public class ItemController(IItemService service, ILogger<ItemController> logger
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при получении изделия по идентификатору");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РёР·РґРµР»РёСЏ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Создание изделия
+    /// РЎРѕР·РґР°РЅРёРµ РёР·РґРµР»РёСЏ
     /// </summary>
     [HttpPost]
     public IActionResult Create([FromBody] ItemCreateUpdateDto dto)
     {
         try
         {
-            logger.LogInformation("Запрос: Создание изделия");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РЎРѕР·РґР°РЅРёРµ РёР·РґРµР»РёСЏ");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var created = service.Create(dto);
@@ -70,20 +70,20 @@ public class ItemController(IItemService service, ILogger<ItemController> logger
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при создании изделия");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РёР·РґРµР»РёСЏ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Обновление изделия
+    /// РћР±РЅРѕРІР»РµРЅРёРµ РёР·РґРµР»РёСЏ
     /// </summary>
     [HttpPut("{id:int}")]
     public IActionResult Update(int id, [FromBody] ItemCreateUpdateDto dto)
     {
         try
         {
-            logger.LogInformation("Запрос: Обновление изделия");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РћР±РЅРѕРІР»РµРЅРёРµ РёР·РґРµР»РёСЏ");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
             return Ok(service.Update(dto, id));
@@ -94,28 +94,28 @@ public class ItemController(IItemService service, ILogger<ItemController> logger
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при обновлении изделия");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РёР·РґРµР»РёСЏ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Удаление изделия
+    /// РЈРґР°Р»РµРЅРёРµ РёР·РґРµР»РёСЏ
     /// </summary>
     [HttpDelete("{id:int}")]
     public IActionResult Delete(int id)
     {
         try
         {
-            logger.LogInformation("Запрос: Удаление изделия");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РЈРґР°Р»РµРЅРёРµ РёР·РґРµР»РёСЏ");
 
             if (!service.Delete(id)) return NotFound();
             return NoContent();
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при удалении изделия");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё РёР·РґРµР»РёСЏ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 }

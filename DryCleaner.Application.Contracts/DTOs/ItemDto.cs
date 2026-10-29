@@ -1,13 +1,13 @@
-namespace DryCleaner.Application.Contracts.DTOs;
+п»їnamespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO изделия
+/// DTO РёР·РґРµР»РёСЏ
 /// </summary>
-/// <param name="Id">Идентификатор изделия</param>
-/// <param name="Name">Название изделия</param>
-/// <param name="Category">Категория изделия</param>
-/// <param name="CategoryId">Идентификатор категории изделия</param>
-/// <param name="Material">Материал изделия</param>
+/// <param name="Id">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РёР·РґРµР»РёСЏ</param>
+/// <param name="Name">РќР°Р·РІР°РЅРёРµ РёР·РґРµР»РёСЏ</param>
+/// <param name="Category">РљР°С‚РµРіРѕСЂРёСЏ РёР·РґРµР»РёСЏ</param>
+/// <param name="CategoryId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ</param>
+/// <param name="Material">РњР°С‚РµСЂРёР°Р» РёР·РґРµР»РёСЏ</param>
 public record ItemDto(
     int Id,
     string Name,

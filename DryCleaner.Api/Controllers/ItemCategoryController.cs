@@ -1,43 +1,43 @@
-using DryCleaner.Application.Contracts.DTOs;
+п»їusing DryCleaner.Application.Contracts.DTOs;
 using DryCleaner.Application.Contracts.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DryCleaner.Api.Controllers;
 
 /// <summary>
-/// HTTP-операции для работы с категориями изделий
+/// HTTP-РѕРїРµСЂР°С†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РєР°С‚РµРіРѕСЂРёСЏРјРё РёР·РґРµР»РёР№
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class ItemCategoryController(IItemCategoryService service, ILogger<ItemCategoryController> logger) : ControllerBase
 {
     /// <summary>
-    /// Получение всех категорий изделий
+    /// РџРѕР»СѓС‡РµРЅРёРµ РІСЃРµС… РєР°С‚РµРіРѕСЂРёР№ РёР·РґРµР»РёР№
     /// </summary>
     [HttpGet]
     public IActionResult GetAll()
     {
         try 
         {
-            logger.LogInformation("Запрос: Вывод всех категорий изделий");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: Р’С‹РІРѕРґ РІСЃРµС… РєР°С‚РµРіРѕСЂРёР№ РёР·РґРµР»РёР№");
             return Ok(service.GetAll()); 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при получении категорий");
-            return StatusCode(500, "Ошибка сервера" );
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РєР°С‚РµРіРѕСЂРёР№");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°" );
         }
     }
 
     /// <summary>
-    /// Получение категории изделия по идентификатору
+    /// РџРѕР»СѓС‡РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
     /// </summary>
     [HttpGet("{id:int}")]
     public IActionResult Get(int id)
     {
         try
         {
-            logger.LogInformation("Запрос: Получение каегории по идентификатору");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РџРѕР»СѓС‡РµРЅРёРµ РєР°РµРіРѕСЂРёРё РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ");
 
             var result = service.Get(id);
             if (result is null) return NotFound();
@@ -45,20 +45,20 @@ public class ItemCategoryController(IItemCategoryService service, ILogger<ItemCa
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при получении категории по идентификатору");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РєР°С‚РµРіРѕСЂРёРё РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Создание категории изделия
+    /// РЎРѕР·РґР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ
     /// </summary>
     [HttpPost]
     public IActionResult Create([FromBody] ItemCategoryCreateUpdateDto dto)
     {
         try
         {
-            logger.LogInformation("Запрос: Создание категории");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РЎРѕР·РґР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var created = service.Create(dto);
@@ -66,20 +66,20 @@ public class ItemCategoryController(IItemCategoryService service, ILogger<ItemCa
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при создании категории");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РєР°С‚РµРіРѕСЂРёРё");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Обновление категории изделия
+    /// РћР±РЅРѕРІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ
     /// </summary>
     [HttpPut("{id:int}")]
     public IActionResult Update(int id, [FromBody] ItemCategoryCreateUpdateDto dto)
     {
         try
         {
-            logger.LogInformation("Запрос: Обновление категории");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РћР±РЅРѕРІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
             return Ok(service.Update(dto, id));
@@ -90,28 +90,28 @@ public class ItemCategoryController(IItemCategoryService service, ILogger<ItemCa
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при обновлении категории");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РєР°С‚РµРіРѕСЂРёРё");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Удаление категории изделия
+    /// РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ
     /// </summary>
     [HttpDelete("{id:int}")]
     public IActionResult Delete(int id)
     {
         try
         {
-            logger.LogInformation("Запрос: Удаление категории");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ: РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё");
 
             if (!service.Delete(id)) return NotFound();
             return NoContent();
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при удалении категории");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё РєР°С‚РµРіРѕСЂРёРё");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 }

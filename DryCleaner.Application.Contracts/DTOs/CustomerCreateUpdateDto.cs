@@ -1,24 +1,24 @@
-using System.ComponentModel.DataAnnotations;
+п»їusing System.ComponentModel.DataAnnotations;
 
 namespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO для создания или обновления клиента
+/// DTO РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РёР»Рё РѕР±РЅРѕРІР»РµРЅРёСЏ РєР»РёРµРЅС‚Р°
 /// </summary>
-/// <param name="LastName">Фамилия клиента</param>
-/// <param name="FirstName">Имя клиента</param>
-/// <param name="Patronymic">Отчество клиента</param>
-/// <param name="PhoneNumber">Номер телефона клиента</param>
+/// <param name="LastName">Р¤Р°РјРёР»РёСЏ РєР»РёРµРЅС‚Р°</param>
+/// <param name="FirstName">РРјСЏ РєР»РёРµРЅС‚Р°</param>
+/// <param name="Patronymic">РћС‚С‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚Р°</param>
+/// <param name="PhoneNumber">РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РєР»РёРµРЅС‚Р°</param>
 public record CustomerCreateUpdateDto(
-    [Required(ErrorMessage = "Имя клиента обязательно для заполнения!")]
+    [Required(ErrorMessage = "РРјСЏ РєР»РёРµРЅС‚Р° РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
     string FirstName,
 
     string? Patronymic,
 
-    [Required(ErrorMessage = "Фамилия клиента обязательна для заполнения!")]
+    [Required(ErrorMessage = "Р¤Р°РјРёР»РёСЏ РєР»РёРµРЅС‚Р° РѕР±СЏР·Р°С‚РµР»СЊРЅР° РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
     string LastName,
 
-    [Required(ErrorMessage = "Номер телефона обязателен для заполнения!")]
-    [RegularExpression(@"^\+?[0-9()\-\s]{5,20}$", ErrorMessage = "Некорректный номер телефона!")]
+    [Required(ErrorMessage = "РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РѕР±СЏР·Р°С‚РµР»РµРЅ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
+    [RegularExpression(@"^\+?[0-9()\-\s]{5,20}$", ErrorMessage = "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°!")]
     string PhoneNumber
 );

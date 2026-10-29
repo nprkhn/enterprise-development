@@ -1,13 +1,13 @@
-namespace DryCleaner.Application.Contracts.DTOs;
+п»їnamespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO клиента
+/// DTO РєР»РёРµРЅС‚Р°
 /// </summary>
-/// <param name="Id">Идентификатор клиента</param>
-/// <param name="LastName">Фамилия клиента</param>
-/// <param name="FirstName">Имя клиента</param>
-/// <param name="Patronymic">Отчество клиента</param>
-/// <param name="PhoneNumber">Номер телефона клиента</param>
+/// <param name="Id">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°</param>
+/// <param name="LastName">Р¤Р°РјРёР»РёСЏ РєР»РёРµРЅС‚Р°</param>
+/// <param name="FirstName">РРјСЏ РєР»РёРµРЅС‚Р°</param>
+/// <param name="Patronymic">РћС‚С‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚Р°</param>
+/// <param name="PhoneNumber">РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РєР»РёРµРЅС‚Р°</param>
 public record CustomerDto(
     int Id,
     string FirstName,

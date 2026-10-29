@@ -1,14 +1,14 @@
-using DryCleaner.Shared.Enums;
+п»їusing DryCleaner.Shared.Enums;
 
 namespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO категории изделия
+/// DTO РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ
 /// </summary>
-/// <param name="Id">Идентификатор категории изделия</param>
-/// <param name="Name">Название категории изделия</param>
-/// <param name="RecommendedCleaning">Рекомендованный вид чистки</param>
-/// <param name="Price">Стоимость чистки</param>
+/// <param name="Id">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ</param>
+/// <param name="Name">РќР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё РёР·РґРµР»РёСЏ</param>
+/// <param name="RecommendedCleaning">Р РµРєРѕРјРµРЅРґРѕРІР°РЅРЅС‹Р№ РІРёРґ С‡РёСЃС‚РєРё</param>
+/// <param name="Price">РЎС‚РѕРёРјРѕСЃС‚СЊ С‡РёСЃС‚РєРё</param>
 public record ItemCategoryDto(
     int Id,
     string Name,

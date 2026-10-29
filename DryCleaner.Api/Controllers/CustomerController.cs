@@ -1,68 +1,68 @@
-using DryCleaner.Application.Contracts.DTOs;
+п»їusing DryCleaner.Application.Contracts.DTOs;
 using DryCleaner.Application.Contracts.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DryCleaner.Api.Controllers;
 
 /// <summary>
-/// HTTP-операции для работы с клиентами
+/// HTTP-РѕРїРµСЂР°С†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РєР»РёРµРЅС‚Р°РјРё
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class CustomerController(ICustomerService service, ILogger<CustomerController> logger) : ControllerBase
 {
     /// <summary>
-    /// Получение списка всех клиентов
+    /// РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РІСЃРµС… РєР»РёРµРЅС‚РѕРІ
     /// </summary>
     [HttpGet]
     public IActionResult GetAll()
     {
         try
         {
-            logger.LogInformation("Запрос всех клиентов");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ РІСЃРµС… РєР»РёРµРЅС‚РѕРІ");
             return Ok(service.GetAll());
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при получении клиентов");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РєР»РёРµРЅС‚РѕРІ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Получение клиента по идентификатору
+    /// РџРѕР»СѓС‡РµРЅРёРµ РєР»РёРµРЅС‚Р° РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
     /// </summary>
     [HttpGet("{id:int}")]
     public IActionResult Get(int id)
     {
         try
         {
-            logger.LogInformation("Запрос клиента по идентификатору");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ РєР»РёРµРЅС‚Р° РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ");
 
             var result = service.Get(id);
             if (result is null)
             {
-                logger.LogWarning("Клиент с указанным идентификатором не найден");
-                return NotFound("Клиент с указанным идентификатором не найден");
+                logger.LogWarning("РљР»РёРµРЅС‚ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј РЅРµ РЅР°Р№РґРµРЅ");
+                return NotFound("РљР»РёРµРЅС‚ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј РЅРµ РЅР°Р№РґРµРЅ");
             }
             return Ok(result);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при получении клиента по указанному идентификатору");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РєР»РёРµРЅС‚Р° РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Создание клиента
+    /// РЎРѕР·РґР°РЅРёРµ РєР»РёРµРЅС‚Р°
     /// </summary>
     [HttpPost]
     public IActionResult Create([FromBody] CustomerCreateUpdateDto dto)
     {
         try
         {
-            logger.LogInformation("Запрос на создание клиента");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ РЅР° СЃРѕР·РґР°РЅРёРµ РєР»РёРµРЅС‚Р°");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -71,20 +71,20 @@ public class CustomerController(ICustomerService service, ILogger<CustomerContro
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при создании клиента");
-            return StatusCode(500, "Ошибка сервера" );
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РєР»РёРµРЅС‚Р°");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°" );
         }
     }
 
     /// <summary>
-    /// Обновление клиента
+    /// РћР±РЅРѕРІР»РµРЅРёРµ РєР»РёРµРЅС‚Р°
     /// </summary>
     [HttpPut("{id:int}")]
     public IActionResult Update(int id, [FromBody] CustomerCreateUpdateDto dto)
     {
         try
         {
-            logger.LogInformation("Запрос на обновление клиента");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ РЅР° РѕР±РЅРѕРІР»РµРЅРёРµ РєР»РёРµРЅС‚Р°");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -93,34 +93,34 @@ public class CustomerController(ICustomerService service, ILogger<CustomerContro
         }
         catch (KeyNotFoundException ex)
         {
-            logger.LogWarning(ex, "Клиент по указанному идентификатору не найден");
+            logger.LogWarning(ex, "РљР»РёРµРЅС‚ РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ РЅРµ РЅР°Р№РґРµРЅ");
             return NotFound(new { Message = ex.Message });
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при обновлении клиента по указанному идентификатору");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РєР»РёРµРЅС‚Р° РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 
     /// <summary>
-    /// Удаление клиента
+    /// РЈРґР°Р»РµРЅРёРµ РєР»РёРµРЅС‚Р°
     /// </summary>
     [HttpDelete("{id:int}")]
     public IActionResult Delete(int id)
     {
         try
         {
-            logger.LogInformation("Запрос на удаление клиента");
+            logger.LogInformation("Р—Р°РїСЂРѕСЃ РЅР° СѓРґР°Р»РµРЅРёРµ РєР»РёРµРЅС‚Р°");
 
             var deleted = service.Delete(id);
-            if (!deleted) return NotFound("Клиент с указанным идентификатором не найден");
+            if (!deleted) return NotFound("РљР»РёРµРЅС‚ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј РЅРµ РЅР°Р№РґРµРЅ");
             return NoContent();
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Ошибка при удалении клиента");
-            return StatusCode(500, "Ошибка сервера");
+            logger.LogError(ex, "РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё РєР»РёРµРЅС‚Р°");
+            return StatusCode(500, "РћС€РёР±РєР° СЃРµСЂРІРµСЂР°");
         }
     }
 }

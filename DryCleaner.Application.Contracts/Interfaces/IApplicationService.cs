@@ -1,32 +1,32 @@
-namespace DryCleaner.Application.Contracts.Interfaces;
+п»їnamespace DryCleaner.Application.Contracts.Interfaces;
 
 /// <summary>
-/// Определяет стандартные операции CRUD для прикладных сервисов
+/// РћРїСЂРµРґРµР»СЏРµС‚ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РѕРїРµСЂР°С†РёРё CRUD РґР»СЏ РїСЂРёРєР»Р°РґРЅС‹С… СЃРµСЂРІРёСЃРѕРІ
 /// </summary>
 public interface IApplicationService<TDto, TCreateUpdateDto, TKey>
 {
 	/// <summary>
-	/// Создаёт новую запись
+	/// РЎРѕР·РґР°С‘С‚ РЅРѕРІСѓСЋ Р·Р°РїРёСЃСЊ
 	/// </summary>
 	TDto Create(TCreateUpdateDto dto);
 
 	/// <summary>
-	/// Возвращает запись по идентификатору
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·Р°РїРёСЃСЊ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
 	/// </summary>
 	TDto? Get(TKey id);
 
 	/// <summary>
-	/// Возвращает все записи
+	/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЃРµ Р·Р°РїРёСЃРё
 	/// </summary>
 	IList<TDto> GetAll();
 
 	/// <summary>
-	/// Обновляет существующую запись
+	/// РћР±РЅРѕРІР»СЏРµС‚ СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ Р·Р°РїРёСЃСЊ
 	/// </summary>
 	TDto? Update(TCreateUpdateDto dto, TKey id);
 
 	/// <summary>
-	/// Удаляет запись
+	/// РЈРґР°Р»СЏРµС‚ Р·Р°РїРёСЃСЊ
 	/// </summary>
 	bool Delete(TKey id);
 }

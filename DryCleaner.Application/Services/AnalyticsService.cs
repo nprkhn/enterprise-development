@@ -1,11 +1,11 @@
-using DryCleaner.Application.Contracts.DTOs.Analytics;
+п»їusing DryCleaner.Application.Contracts.DTOs.Analytics;
 using DryCleaner.Application.Contracts.Interfaces;
 using DryCleaner.Shared.Enums;
 
 namespace DryCleaner.Application.Services;
 
 /// <summary>
-/// Аналитическая информация
+/// РђРЅР°Р»РёС‚РёС‡РµСЃРєР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ
 /// </summary>
 public class AnalyticsService(IOrderRepository orderRepository) : IAnalyticsService
 {

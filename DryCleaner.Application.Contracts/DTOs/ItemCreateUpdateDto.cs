@@ -1,19 +1,19 @@
-using System.ComponentModel.DataAnnotations;
+п»їusing System.ComponentModel.DataAnnotations;
 
 namespace DryCleaner.Application.Contracts.DTOs;
 
 /// <summary>
-/// DTO для создания или обновления изделия
+/// DTO РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РёР»Рё РѕР±РЅРѕРІР»РµРЅРёСЏ РёР·РґРµР»РёСЏ
 /// </summary>
-/// <param name="Name">Название изделия</param>
-/// <param name="CategoryId">Идентификатор категории</param>
-/// <param name="Material">Материал изделия</param>
+/// <param name="Name">РќР°Р·РІР°РЅРёРµ РёР·РґРµР»РёСЏ</param>
+/// <param name="CategoryId">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР°С‚РµРіРѕСЂРёРё</param>
+/// <param name="Material">РњР°С‚РµСЂРёР°Р» РёР·РґРµР»РёСЏ</param>
 public record ItemCreateUpdateDto(
-    [Required(ErrorMessage = "Название изделия обязательно")]
+    [Required(ErrorMessage = "РќР°Р·РІР°РЅРёРµ РёР·РґРµР»РёСЏ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ")]
     string Name,
 
     int CategoryId,
 
-    [Required(ErrorMessage = "Материал изделия обязателен для заполнения!")]
+    [Required(ErrorMessage = "РњР°С‚РµСЂРёР°Р» РёР·РґРµР»РёСЏ РѕР±СЏР·Р°С‚РµР»РµРЅ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ!")]
     string Material
 );
