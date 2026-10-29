@@ -71,7 +71,7 @@ public class DryCleanerTests
             .ToList();
 
         Assert.Equal(10, maxCompletionDays);
-        Assert.Equal(1, customers.Count);
+        Assert.Single(customers);
         Assert.Equal("Вазовский", customers[0].LastName);
         Assert.Equal("Майк", customers[0].FirstName);
     }
