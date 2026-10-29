@@ -3,7 +3,7 @@
 /// <summary>
 /// Изделие в химчистке
 /// </summary>
-public class Item
+public class Item : IEntity
 {
     /// <summary>
     /// Идентификатор изделия

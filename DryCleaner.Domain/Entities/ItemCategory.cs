@@ -5,7 +5,7 @@ namespace DryCleaner.Domain.Entities;
 /// <summary>
 /// Категория изделия
 /// </summary>
-public class ItemCategory
+public class ItemCategory : IEntity
 {
     /// <summary>
     /// Идентификатор категории изделия

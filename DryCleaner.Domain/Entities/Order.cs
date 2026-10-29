@@ -5,7 +5,7 @@ namespace DryCleaner.Domain.Entities;
 /// <summary>
 /// Заказ на химчистку
 /// </summary>
-public class Order
+public class Order : IEntity
 {
     /// <summary>
     /// Идентификатор заказа

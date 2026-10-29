@@ -3,7 +3,7 @@
 /// <summary>
 /// Клиент химчистки
 /// </summary>
-public class Customer
+public class Customer : IEntity
 {
     /// <summary>
     /// Идентификатор клиента
